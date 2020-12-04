@@ -27,7 +27,7 @@ impl PassCheck<'_> {
 fn parse_line<'a>(re: &Regex, line: &'a str) -> Option<PassCheck<'a>> {
     if let Some(cap) = re.captures(line) {
         let pass_check = PassCheck {
-            min: cap.get(1).unwrap().as_str().parse().unwrap(),
+            min: cap.get(1).unwrap().as_str().parse().unwrap(), // TODO Remove unwraps
             max: cap.get(2).unwrap().as_str().parse().unwrap(),
             letter: cap.get(3).unwrap().as_str().chars().nth(0).unwrap(),
             password: cap.get(4).unwrap().as_str(),
