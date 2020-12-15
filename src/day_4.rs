@@ -1,29 +1,29 @@
+use regex::Regex;
+
 use crate::utils::read_lines_true;
 
-pub fn part_1(){
+pub fn part_1() {
     let lines = read_lines_true("input/day_4.txt").unwrap();
-    //println!("{:?}", lines);
-    let split = lines.split(|line| line == "");
-    let mut pass_list: Vec<Vec<&str>> = Vec::new();
 
-    for (id, pass_lines) in split.enumerate() {
-        let mut fields = Vec::new();
-        for line in pass_lines {
-            let items: Vec<&str> = line.split(' ').collect();
-            for item in items {
-                fields.push(item);
-            }
-            
-        }
-        pass_list.push(fields);
-        
-    }
+    let pass_list: Vec<Vec<&str>> = lines
+        .split(|line| line == "")
+        .map(|pass_lines| {
+            pass_lines.iter().fold(Vec::new(), |mut vec, line| {
+                vec.append(&mut line.split(' ').collect());
+                vec
+            })
+        })
+        .collect();
 
-    pass_list.filter()
-    for pass in pass_list.enumerate() {
-        println!("{:?}", pass);
-    }
+    let cid_re = Regex::new(r"^cid:\d+$").unwrap();
 
-    //let result = pass_list.iter().filter(|pass| pass.iter().count() == 8).count();
-    //println!("{}", result);
+    let result = pass_list
+        .iter()
+        .filter(|pass| {
+            let field_count = pass.iter().count();
+            field_count == 8
+                || (field_count == 7 && pass.iter().find(|field| cid_re.is_match(field)).is_none())
+        })
+        .count();
+    println!("The number of valid passports: {}", result);
 }

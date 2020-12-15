@@ -1,6 +1,6 @@
 use crate::utils::read_lines_true;
 
-fn check_slope(slope: &Vec<String>, right: usize, down: usize, width: usize) -> usize {
+fn check_slope(slope: &[String], right: usize, down: usize, width: usize) -> u32 {
     let mut x = right;
     let mut y = down;
 

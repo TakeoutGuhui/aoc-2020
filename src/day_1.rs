@@ -1,6 +1,6 @@
 use crate::utils::read_lines;
 
-fn find_two(numbers: &Vec<u32>) -> Option<u32> {
+fn find_two(numbers: &[u32]) -> Option<u32> {
     for &n_1 in numbers {
         for &n_2 in numbers {
             if n_1 + n_2 == 2020 {
@@ -11,7 +11,7 @@ fn find_two(numbers: &Vec<u32>) -> Option<u32> {
     None
 }
 
-fn find_three(numbers: &Vec<u32>) -> Option<u32> {
+fn find_three(numbers: &[u32]) -> Option<u32> {
     for &n_1 in numbers {
         for &n_2 in numbers {
             for &n_3 in numbers {
