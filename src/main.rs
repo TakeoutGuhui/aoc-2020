@@ -4,6 +4,7 @@ mod day_1;
 mod day_2;
 mod day_3;
 mod day_4;
+mod day_7;
 
 fn main() {
     // TODO Do it some other way
@@ -21,4 +22,6 @@ fn main() {
     day_3::part_2();
     println!("Day 4 part 1:");
     day_4::part_1();
+    println!("Day 7 part 1:");
+    day_7::part_1();
 }
