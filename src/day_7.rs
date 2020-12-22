@@ -16,8 +16,7 @@ fn parse_line<'a>(h_map: &mut HashMap<&'a str, Option<Vec<(&'a str, u8)>>>, line
         h_map.insert(color, None);
     } else {
         let mut bags: Vec<(&str, u8)> = Vec::new();
-        let cap_iter = BAGS_RE.captures_iter(line);
-        for cap in cap_iter {
+        for cap in BAGS_RE.captures_iter(line) {
             let clr = cap.get(2).unwrap().as_str();
             let num: u8 = cap.get(1).unwrap().as_str().parse().unwrap();
             bags.push((clr, num));
