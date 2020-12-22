@@ -1,3 +1,5 @@
+#[macro_use]
+extern crate lazy_static;
 mod utils;
 
 mod day_1;
@@ -23,5 +25,5 @@ fn main() {
     println!("Day 4 part 1:");
     day_4::part_1();
     println!("Day 7 part 1:");
-    day_7::part_1();
+    day_7::part_1_and_2();
 }
