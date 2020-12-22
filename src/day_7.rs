@@ -38,7 +38,7 @@ fn find_gold(color: &str, h_map: &HashMap<&str, Option<Vec<(&str, u8)>>>) -> boo
 fn count_bags(color: &str, h_map: &HashMap<&str, Option<Vec<(&str, u8)>>>) -> u32 {
     if let Some(Some(list)) = h_map.get(color) {
         list.iter()
-            .map(|(clr, num)| (*num as u32 * count_bags(clr, h_map)))
+            .map(|(clr, num)| *num as u32 * count_bags(clr, h_map))
             .sum::<u32>()
             + 1
     } else {
