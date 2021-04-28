@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use regex::Regex;
 
-use crate::utils::read_lines_true;
+use crate::utils::read_lines;
 
 fn parse_line<'a>(h_map: &mut HashMap<&'a str, Option<Vec<(&'a str, u8)>>>, line: &'a str) {
     lazy_static! {
@@ -48,7 +48,7 @@ fn count_bags(color: &str, h_map: &HashMap<&str, Option<Vec<(&str, u8)>>>) -> u3
 
 pub fn part_1_and_2() {
     let mut h_map: HashMap<&str, Option<Vec<(&str, u8)>>> = HashMap::new();
-    let lines = read_lines_true("input/day_7.txt").unwrap();
+    let lines = read_lines("input/day_7.txt").unwrap();
 
     for line in &lines {
         parse_line(&mut h_map, line);

@@ -1,6 +1,6 @@
 use regex::Regex;
 
-use crate::utils::read_lines_true;
+use crate::utils::read_lines;
 
 #[derive(Debug)]
 struct PassCheck<'a> {
@@ -40,7 +40,7 @@ fn parse_line<'a>(re: &Regex, line: &'a str) -> Option<PassCheck<'a>> {
 pub fn part_1() {
     let re = Regex::new(r"^(?P<min>\d+)-(?P<max>\d+) (?P<letter>\w): (?P<password>\w+)$").unwrap();
 
-    let correct_count = read_lines_true("input/day_2.txt")
+    let correct_count = read_lines("input/day_2.txt")
         .expect("couldn't read")
         .iter()
         .map(|line| parse_line(&re, line).unwrap())
@@ -53,7 +53,7 @@ pub fn part_1() {
 pub fn part_2() {
     let re = Regex::new(r"^(?P<min>\d+)-(?P<max>\d+) (?P<letter>\w): (?P<password>\w+)$").unwrap();
 
-    let correct_count = read_lines_true("input/day_2.txt")
+    let correct_count = read_lines("input/day_2.txt")
         .expect("couldn't read")
         .iter()
         .map(|line| parse_line(&re, line).unwrap())

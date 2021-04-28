@@ -1,4 +1,4 @@
-use crate::utils::read_lines_true;
+use crate::utils::read_lines;
 
 fn check_slope(slope: &[String], right: usize, down: usize, width: usize) -> u32 {
     let mut x = right;
@@ -17,14 +17,14 @@ fn check_slope(slope: &[String], right: usize, down: usize, width: usize) -> u32
 }
 
 pub fn part_1() {
-    let lines = read_lines_true("input/day_3.txt").unwrap();
+    let lines = read_lines("input/day_3.txt").unwrap();
     let width = lines.get(0).unwrap().chars().count();
     let result = check_slope(&lines, 3, 1, width);
     println!("{} trees hit!", result);
 }
 
 pub fn part_2() {
-    let lines = read_lines_true("input/day_3.txt").unwrap();
+    let lines = read_lines("input/day_3.txt").unwrap();
     let width = lines.get(0).unwrap().chars().count();
     let slopes: Vec<(usize, usize)> = vec![(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)];
 

@@ -1,3 +1,5 @@
+use std::time::Instant;
+
 #[macro_use]
 extern crate lazy_static;
 mod utils;
@@ -9,6 +11,7 @@ mod day_4;
 mod day_7;
 
 fn main() {
+    let total_time = Instant::now();
     // TODO Do it some other way
     println!("Day 1 part 1:");
     day_1::part_1();
@@ -26,4 +29,5 @@ fn main() {
     day_4::part_1();
     println!("Day 7 part 1:");
     day_7::part_1_and_2();
+    println!("Total time: {}", total_time.elapsed().as_millis());
 }

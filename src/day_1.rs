@@ -25,17 +25,24 @@ fn find_three(numbers: &[u32]) -> Option<u32> {
 }
 
 pub fn part_1() {
-    if let Ok(numbers) = read_lines("input/day_1.txt") {
-        if let Some(result) = find_two(&numbers) {
-            println!("The result is {}!", result);
-        }
+    let numbers: Vec<u32> = read_lines("input/day_1.txt")
+        .unwrap()
+        .iter()
+        .map(|line| line.parse().unwrap())
+        .collect();
+    if let Some(result) = find_two(&numbers) {
+        println!("The result is {}!", result);
     }
 }
 
 pub fn part_2() {
-    if let Ok(numbers) = read_lines("input/day_1.txt") {
-        if let Some(result) = find_three(&numbers) {
-            println!("The result is {}!", result);
-        }
+    let numbers: Vec<u32> = read_lines("input/day_1.txt")
+        .unwrap()
+        .iter()
+        .map(|line| line.parse().unwrap())
+        .collect();
+
+    if let Some(result) = find_three(&numbers) {
+        println!("The result is {}!", result);
     }
 }
